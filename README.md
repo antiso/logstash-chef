@@ -3,7 +3,11 @@
 Description
 ===========
 
-This is the semi-official 'all-in-one' Logstash cookbook.
+This is the semi-official 'all-in-one' Logstash cookbook. The only working vagrant box is "precise32".
+So, to execute it use:
+
+    vagrant up precise32
+
 
 Requirements
 ============
