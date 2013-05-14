@@ -49,7 +49,16 @@ Vagrant::Config.run do |config|
             xmx: '128m',
             enable_embedded_es: false,
             elasticsearch_ip: '127.0.0.1',
-            debug: 'true'
+            debug: 'true',
+            inputs: [
+                udp: {
+                   charset: 'UTF-8',
+                   debug: 'true',
+                   format: 'json',
+                   message_format: '%{message}',
+                   type: 'udp'
+                }
+            ]
           },
           kibana: {
             server_name: '192.168.1.33',
