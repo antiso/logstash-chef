@@ -2,11 +2,7 @@
 
 $KIBANA_CONFIG = array(
   // Your elastic search server
-  <% unless @es_server_ip.empty? -%>
-  'elasticsearch_server' => "<%= @es_server_ip %>:9200",
-  <% else -%>
   'elasticsearch_server' => "127.0.0.1:9200",
-  <% end -%>
 
   // URL path to kibana. Apache users can safely leave this
   // blank in most situations.

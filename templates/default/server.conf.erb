@@ -1,9 +1,11 @@
 input {
   <% if node['logstash']['server']['inputs'].empty? -%>
-  tcp {
-    type => "tcp-input"
-    port => "5959"
-    format => "json_event"
+  udp {
+    charset => "UTF-8" # string, one of ["ASCII-8BIT", "UTF-8", "US-ASCII", "Big5", "Big5-HKSCS", "Big5-UAO", "CP949", "Emacs-Mule"$
+    debug => true # boolean (optional), default: false
+    format => "json" # string, one of ["plain", "json", "json_event", "msgpack_event"] (optional)
+    message_format => "%{message}"
+    type => "foobar" # string (required)
   }
   <% else -%> 
     <%= LogstashConf.section_to_str(node['logstash']['server']['inputs']) %>
@@ -31,4 +33,6 @@ output {
   <% # unless node['logstash']['server']['outputs'].empty? -%>
     <%= LogstashConf.section_to_str(node['logstash']['server']['outputs']) %>
   <% # end -%>
+  elasticsearch { host => "127.0.0.1" cluster => "logstash_vagrant" }
+
 }

@@ -2,7 +2,8 @@ module KibanaConfig
 
   es_ip = ENV['ES_IP'] ?  ENV['ES_IP'] : '127.0.0.1'
   es_port = ENV['ES_PORT'] ?  ENV['ES_PORT'] : 9200
-  Elasticsearch = "#{es_ip}:#{es_port}"
+  #Elasticsearch = "#{es_ip}:#{es_port}"
+  Elasticsearch = "127.0.0.1:9200"
   KibanaPort = ENV['KIBANA_PORT'] ? ENV['KIBANA_PORT'] : 80
   KibanaHost = ENV['KIBANA_HOST'] ? ENV['KIBANA_HOST'] : 'localhost'
 
